@@ -9,13 +9,13 @@ export const NavBar = () => {
                 </div>
                 <ul>
                     <li>
-                        <a href=" # "> Categoria</a>
+                        <a href=" # ">Categoria</a>
                     </li>
                     <li>
-                        <a href=" # "> </a>Eventos
+                        <a href=" # ">Eventos</a>
                     </li>
                     <li>
-                        <a href=" # "> </a>Carrito
+                        <a href=" # ">Carrito </a>
                     </li>
                 </ul>
             </nav>
