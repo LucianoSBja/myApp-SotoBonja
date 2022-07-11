@@ -48,12 +48,12 @@ header .logo img:hover {
   height: 80px;
   width: auto;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 .btn_carrito {
   cursor: pointer;
   height: 70px;
   width: auto;
-  transform: rotate(-15deg);
+  transform: rotate(-18deg);
 }
