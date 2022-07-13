@@ -1,0 +1,6 @@
+.btn_carrito {
+	cursor: pointer;
+	height: 70px;
+	width: auto;
+	transform: rotate(-18deg);
+}
