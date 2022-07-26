@@ -3,7 +3,7 @@ import Title from '../Title';
 import ItemCount from '../ItemCount';
 import ItemList from '../ItemList';
 
-const films = [
+const productos = [
 	{
 		id: 1,
 		img: 'https://http2.mlstatic.com/D_NQ_NP_953586-MCO45131846536_032021-O.webp',
@@ -27,7 +27,7 @@ export const ItemListContainer = ({ texto }) => {
 	useEffect(() => {
 		const getData = new Promise((resolve) => {
 			setTimeout(() => {
-				resolve(films);
+				resolve(productos);
 			}, 3000);
 		});
 		getData.then((res) => setData(res));
