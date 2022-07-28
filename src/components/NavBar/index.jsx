@@ -2,6 +2,7 @@ import React from 'react';
 import './navBar.css';
 import logo from './logo.svg';
 import CartWidget from '../CartWidget';
+import { NavLink } from 'react-router-dom';
 
 export const NavBar = () => {
 	return (
@@ -12,13 +13,24 @@ export const NavBar = () => {
 			<nav className="nav">
 				<ul className="nav_links">
 					<li>
-						<a href=" # ">Productos</a>
+						<NavLink className="nav__links" to="/">
+							Productos
+						</NavLink>
 					</li>
 					<li>
-						<a href=" # ">Mi Historia</a>
+						<NavLink className="nav__links" to="/categoria/new">
+							Nuevos
+						</NavLink>
 					</li>
 					<li>
-						<a href=" # ">Contacto</a>
+						<NavLink className="nav__links" to="/sobremi">
+							Mi Historia
+						</NavLink>
+					</li>
+					<li>
+						<NavLink className="nav__links" to="/contacto">
+							Contacto
+						</NavLink>
 					</li>
 				</ul>
 			</nav>

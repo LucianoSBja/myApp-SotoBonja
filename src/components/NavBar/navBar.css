@@ -30,7 +30,7 @@ header {
 	padding: 20px;
 }
 
-.nav .nav_links a {
+.nav__links {
 	font-size: 700;
 	color: #eceff1;
 	text-decoration: none;
