@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 const Item = ({ info }) => {
 	return (
 		<Link to={`/detalle/${info.id}`} className="film">
-			<img src={info.img} alt="" />
-			<p>{info.title}</p>
+			<div className="containerCards">
+				<img src={info.img} alt="" />
+				<p>{info.title}</p>
+			</div>
 		</Link>
 	);
 };
