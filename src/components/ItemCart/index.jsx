@@ -7,9 +7,9 @@ const ItemCart = ({ producto }) => {
 
 	return (
 		<div className="itemCart">
-			<img src={producto.img} alt={producto.title} />
+			<img src={producto.img} alt={producto.nombre} />
 			<div>
-				<p>Titulo: {producto.title}</p>
+				<p>Titulo: {producto.nombre}</p>
 				<p>cantidad: {producto.quantity}</p>
 				<p>Precio u.: {producto.price}</p>
 				<p>Subtotal: {producto.quantity * producto.price}</p>
