@@ -30,15 +30,16 @@ const CartProvider = ({ children }) => {
 		}
 	};
 
-	const totalPrince = () => {
-		return cart.reduce((prev, act) => (prev = act.quantity * act.price), 0);
+	const totalPrice = () => {
+		return cart.reduce((prev, act) => (prev + act.quantity * act.price), 0);
 	};
 
-	const totalProducts = () =>
-		cart.reduce(
-			(acumulador, productoActual) => acumulador + productoActual.quantity,
-			0
-		);
+	const totalProducto = () => {
+		return cart.reduce(
+		(acumulador, productoActual) => acumulador + productoActual.quantity,
+		0
+	);}
+		 
 
 	return (
 		<CartContex.Provider
@@ -47,8 +48,8 @@ const CartProvider = ({ children }) => {
 				isIncart,
 				removeProducto,
 				addProducto,
-				totalPrince,
-				totalProducts,
+				totalPrice,
+				totalProducto,
 				cart,
 			}}
 		>
