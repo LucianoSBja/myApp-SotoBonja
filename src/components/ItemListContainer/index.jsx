@@ -1,46 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Title from '../Title';
-
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore'
 import ItemList from '../ItemList';
 import { useParams } from 'react-router-dom';
 
-const productos = [
-	{
-		id: 1,
-		priceL: 500,
-		img: 'https://http2.mlstatic.com/D_NQ_NP_953586-MCO45131846536_032021-O.webp',
-		title: 'Diadema de lazo',
-		category: 'standar',
-	},
-	{
-		id: 2,
-		priceL: 200,
-		img: 'https://http2.mlstatic.com/D_NQ_NP_901605-MCO46656717643_072021-O.webp',
-		title: 'Diadema tejida',
-		category: 'standar',
-	},
-	{
-		id: 3,
-		priceL: 300,
-		img: 'https://http2.mlstatic.com/D_NQ_NP_847602-MCO47701476325_092021-O.webp',
-		title: 'Diadema de tela',
-		category: 'new',
-	},
-	{
-		id: 4,
-		priceL: 400,
-		img: 'http://d2r9epyceweg5n.cloudfront.net/stores/829/766/products/colibri-verde1-67bfe14909ffbb523316255128608849-640-0.jpg',
-		title: 'Diadema de tela',
-		category: 'new',
-	},
-	{
-		id: 5,
-		priceL: 200,
-		img: 'http://d3ugyf2ht6aenh.cloudfront.net/stores/641/037/products/libertad-rojo1-d7d0a5b562db22869216279454634690-640-0.jpg',
-		title: 'Diadema de tela',
-		category: 'new',
-	},
-];
+//1- Traer el servidor de firestore
+//2- Crear un untero al dato que queremos traer 
+//3- Traer el dato con una promesa
 
 export const ItemListContainer = ({ texto }) => {
 	const [data, setData] = useState([]);
@@ -48,19 +14,18 @@ export const ItemListContainer = ({ texto }) => {
 	const { categoriaId } = useParams();
 
 	useEffect(() => {
-		const getData = new Promise((resolve) => {
-			setTimeout(() => {
-				resolve(productos);
-			}, 1000);
-		});
+		const querydb = getFirestore();
+		const queryCollection = collection(querydb, 'productos');
+		
+
+
 		if (categoriaId) {
-			getData.then((res) =>
-				setData(
-					res.filter((productos) => productos.category === categoriaId)
-				)
-			);
+			const queryFilter = query(queryCollection, where('categoria', '==', categoriaId))
+			getDocs(queryFilter)
+			.then(res => setData(res.docs.map(producto =>({id: producto.id, ...producto.data()}))))
 		} else {
-			getData.then((res) => setData(res));
+			getDocs(queryCollection)
+			.then(res => setData(res.docs.map(producto =>({id: producto.id, ...producto.data()}))))
 		}
 	}, [categoriaId]);
 

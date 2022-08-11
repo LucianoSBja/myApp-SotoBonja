@@ -8,7 +8,7 @@ export const CartWidget = () => {
 
 	return (
 		<>
-			<img className="btn_carrito" src={carrito} alt="carrito" />;
+			<img className="btn_carrito" src={carrito} alt="carrito" />
 			<span>{totalProducto() || ''}</span>
 		</>
 	);
