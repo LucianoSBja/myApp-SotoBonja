@@ -14,7 +14,7 @@ const Cart = () => {
 		phone: '1233213',
 		address:'assd'
 	},
-	item: cart.map(producto => ({id: producto.id, nombre:producto.nombre, price: producto.precio, quantity: producto.quantity})),
+	item: cart.map(productos => ({id: productos.id, nombre:productos.nombre, price: productos.price, quantity: productos.quantity})),
 	total:totalPrice(),
 }
 	const handleClick = () => {
